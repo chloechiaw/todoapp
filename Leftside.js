@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import Rightside from "./Rightside";
 import { v4 as uuidv4 } from "uuid";
+import { toVarDefinition } from "@chakra-ui/react";
 
-const LeftSide = ({ setTask, setTitle, title, note }) => {
+const LeftSide = ({ notes }) => {
+  console.log(notes);
   return (
-    <div>
-      {note.map((n) => ( 
-        <div>
-          <h2>{n.title}</h2>
+    <div className="left">
+      {notes.map((n) => (
+        <div key={n.id} style={{display: "flex"}}>
+          <input type="checkbox" />
+          <h2
+          style={{
+              color: "white",
+              textDecoration:toVarDefinition.comple
+          }}>{n.title}</h2>
           <p>{n.task.substring(0, 20)}</p>
         </div>
       ))}

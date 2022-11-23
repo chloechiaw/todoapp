@@ -11,20 +11,6 @@ import { IconButton } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
 const App = () => {
-  const toggleOptions = [
-    {
-      label: "Today",
-      value: "Today",
-    },
-    {
-      label: "Next 7 Days",
-      value: "Next 7 Days",
-    },
-    {
-      label: "All Tasks",
-      value: "All Tasks",
-    },
-  ];
 
   const [notes, setNotes] = useState({
     id: "",
@@ -113,7 +99,6 @@ const App = () => {
       <h2> Good morning, Chloe ☀️</h2>
       <p> Here's the plan for today</p>
       <Toggle
-        toggleOptions={toggleOptions}
         selectedTag={selectedTag}
         onSelectedTag={setSelectedTag}
       />

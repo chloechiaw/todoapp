@@ -98,10 +98,6 @@ const App = () => {
     <div>
       <h2> Good morning, Chloe ☀️</h2>
       <p> Here's the plan for today</p>
-      <Toggle
-        selectedTag={selectedTag}
-        onSelectedTag={setSelectedTag}
-      />
       <Rightside updateNotes={updateNotes} />
       <IconButton
         className="add"

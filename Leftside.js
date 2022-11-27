@@ -15,18 +15,3 @@ const LeftSide = ({ notes }) => {
   );
 };
 export default LeftSide;
-
-const Leftside = ({ notes }) => {
-  useEffect(() => {
-    return (
-      <div className="left">
-        {notes.map((n) => (
-          <div key={n.id}>
-            <h2>{n.title}</h2>
-            <p>{n.task.substring(0, 20)}</p>
-          </div>
-        ))}
-      </div>
-    );
-  }, []);
-};

@@ -1,9 +1,54 @@
 {
-  "note": [
+  "notes": [
     {
       "id": 1,
-      "title": "My first title",
-      "task": "My first task"
+      "title": "title of my task",
+      "task": "task",
+      "date": "11/16/2022",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "title of my second task",
+      "task": "second task",
+      "date": "11/17/2022",
+      "completed": false
+    },
+    {
+      "title": "new ",
+      "task": "sdf",
+      "date": "11/23/2022",
+      "id": 3
+    },
+    {
+      "title": "wew",
+      "task": "sdf",
+      "date": "2022-11-25",
+      "id": 4
+    },
+    {
+      "title": "sdf",
+      "task": "adsfadsf",
+      "date": "2022-11-29",
+      "id": 5
+    },
+    {
+      "title": "1",
+      "task": "adsfadsf",
+      "date": "2022-11-29",
+      "id": 6
+    },
+    {
+      "title": "2",
+      "task": "adsfadsf",
+      "date": "2022-11-25",
+      "id": 7
+    },
+    {
+      "title": "3",
+      "task": "sdf",
+      "date": "2022-11-29",
+      "id": 8
     }
   ]
 }

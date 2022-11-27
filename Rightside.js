@@ -1,8 +1,8 @@
-=import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Leftside from "./Leftside";
 import "./App.css";
-import { IconButton } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
+// import { IconButton } from "@chakra-ui/react";
+// import { AddIcon } from "@chakra-ui/icons";
 
 const Rightside = ({ updateNotes }) => {
   const [title, setTitle] = useState("");
@@ -13,7 +13,7 @@ const Rightside = ({ updateNotes }) => {
     e.preventDefault();
     const note = { title, task, date };
     console.log(note);
-    const response = await fetch(" http://localhost:3001/note", {
+    const response = await fetch("http://localhost:3001/notes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(note),
@@ -25,7 +25,7 @@ const Rightside = ({ updateNotes }) => {
   };
 
   return (
-    <div class="right">
+    <div className="right">
       <form onSubmit={handleSubmit} className="Outline">
         <input
           className="taskfont textareawidth "
@@ -63,3 +63,4 @@ const Rightside = ({ updateNotes }) => {
 };
 
 export default Rightside;
+

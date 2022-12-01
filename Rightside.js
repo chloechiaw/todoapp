@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+import App from "./App";
 
 import Leftside from "./Leftside";
 import "./App.css";
 // import { IconButton } from "@chakra-ui/react";
 // import { AddIcon } from "@chakra-ui/icons";
 
-const todayDateFormated = moment().format("YYYY/MM/DD");
-
-const Rightside = ({ updateNotes, notes, todayDateFormated }) => {
+const Rightside = ({ updateNotes, notes }) => {
   const [title, setTitle] = useState("");
   const [task, setTask] = useState("");
-  const [date, setDate] = useState([{ todayDateFormated }]);
+  const [date, setDate] = useState(moment().format("YYYY-MM-DD"));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,13 +41,12 @@ const Rightside = ({ updateNotes, notes, todayDateFormated }) => {
           <br></br>
           <br></br>
           <input
+            id="dateid"
             className="datefont"
             type="date"
             id="start"
             name="trip-start"
-            value={date}
-            min="2022-11-19"
-            max="2030-11-16"
+            value={{ date }}
             onChange={(e) => setDate(e.target.value)}
           ></input>
           <br></br>

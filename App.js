@@ -38,6 +38,12 @@ const App = () => {
 
   // // // when data arrives from the server, the data gets stored into the state using the function setTitle
 
+  function handleCheckboxChange(id) {
+    const newNotes = [...notes];
+    newNotes[id].isCompleted = !newNotes[id].isCompleted;
+    setNotes(newNotes);
+  }
+
   const updateNotes = (newNote) => {
     setNotes([...notes, newNote]);
   };
@@ -68,14 +74,22 @@ const App = () => {
 
   return (
     <div>
-      <select onChange={(e) => onChangeToggle(e.target.value)}>
+      <select
+        className="ml-3 mt-2 border-1.5 outline outline-slate-300 rounded-sm drop-shadow-lg"
+        onChange={(e) => onChangeToggle(e.target.value)}
+      >
         <option value="today">Today</option>
         <option value="next 7 days">Next 7 Days</option>
         <option value="all tasks">All Tasks</option>
       </select>
-      <h2> Good morning, Chloe ☀️</h2>
-      <p> Here's the plan for today</p>
-      <Rightside updateNotes={updateNotes} notes={notes} />
+      <h2 className="ml-3 mt-5"> Good morning, Chloe ☀️</h2>
+      <p className="ml-3 mb-2"> Here's the plan for today</p>
+      <Rightside
+        updateNotes={updateNotes}
+        notes={notes}
+        setNotes={setNotes}
+        handleCheckboxChange={handleCheckboxChange}
+      />
       <IconButton />
       {/* <Leftside notes={notes} /> */}
     </div>

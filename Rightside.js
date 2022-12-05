@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import App from "./App";
-
-import Leftside from "./Leftside";
 import "./App.css";
-// import { IconButton } from "@chakra-ui/react";
-// import { AddIcon } from "@chakra-ui/icons";
-
 const Rightside = ({ updateNotes, notes }) => {
   const [title, setTitle] = useState("");
   const [task, setTask] = useState("");
@@ -27,12 +22,18 @@ const Rightside = ({ updateNotes, notes }) => {
     console.log(data);
   };
 
+  const handleCheckboxChange = ({ id, notes, setNotes }) => {
+    const newNotes = [...notes];
+    newNotes[id].isCompleted = !newNotes[id].isCompleted;
+    setNotes(newNotes);
+  };
+
   return (
     <div className="w-screen h-screen grid grid-rows-2 text-1xl md:grid-cols-2">
       <div className="w-full h-full md:h-screen">
-        <form onSubmit={handleSubmit} className="Outline">
+        <form onSubmit={handleSubmit}>
           <input
-            className="taskfont textareawidth "
+            className="ml-3 border-1.5 outline outline-slate-300 rounded-sm drop-shadow-lg"
             type="text"
             placeholder="Task"
             value={title}
@@ -41,32 +42,44 @@ const Rightside = ({ updateNotes, notes }) => {
           <br></br>
           <br></br>
           <input
+            className=" ml-3 border-1.5 outline outline-slate-300 rounded-sm drop-shadow-lg"
             id="dateid"
-            className="datefont"
             type="date"
-            id="start"
             name="trip-start"
-            value={{ date }}
+            value={date}
             onChange={(e) => setDate(e.target.value)}
           ></input>
           <br></br>
           <br></br>
           <textarea
-            className="textareawidth"
+            className="ml-3 mb-2 border-1.5 outline outline-slate-300 rounded-sm drop-shadow-lg"
             placeholder="Write..."
             rows="20"
             value={task}
             onChange={(e) => setTask(e.target.value)}
           ></textarea>
           <br></br>
-          <button onClick={handleSubmit}>Add</button>
+          <button
+            className="text-white	whitespace-normal	w-20 ml-3 bg-green-100 border border-green-200 hover:bg-green-700 rounded-md drop-shadow-lg"
+            onClick={handleSubmit}
+          >
+            Add
+          </button>
         </form>
       </div>
       <div>
         {notes.map((n) => (
-          <div key={n.id}>
-            <h2>{n.title}</h2>
-            <p>{n.task.substring(0, 20)}</p>
+          <div>
+            <li key={n.id}>
+              <h2>{n.title}</h2>
+              <p>{n.task.substring(0, 20)}</p>
+            </li>
+            <input
+              type="checkbox"
+              checked={n.isCompleted}
+              onChange={() => handleCheckboxChange(id)}
+              style={n.isCompleted ? "checked" : null}
+            />
           </div>
         ))}
       </div>

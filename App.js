@@ -87,6 +87,7 @@ const App = () => {
       <Rightside
         updateNotes={updateNotes}
         notes={notes}
+        id={id}
         setNotes={setNotes}
         handleCheckboxChange={handleCheckboxChange}
       />
